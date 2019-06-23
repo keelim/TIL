@@ -1,3 +1,11 @@
+# Kotlin
+ 
+## start date: 2019 06 23
+## name: StartKotlin
+- - - 
+### daily 1 lecture 
+
+- - - 
 ## 2019 06 23
 
 1. 함수 정의
@@ -29,6 +37,8 @@
     - switch 보다 더 강력하게 사용 가능
 9. range
 10. Collections 
+
+## 2019 06 24
 
 
 
