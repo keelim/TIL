@@ -39,11 +39,16 @@
 10. Collections 
 
 ## 2019 06 24
-
-
-
-
-
-
-
- 
+1. 모든 것은  객체
+    - Number Class 로 접근
+2. 리터럴
+    - 10, long, double, float, 2진수 16진수 8진수 x
+3. Underscore 수치를 표현 가능
+4. Representation 
+    - Nullable, Generic
+5. 문자 char 는 숫자로 취급되지 않음
+    - java 에서는 가능하지만 직접적인 비교는 되지 않는다.
+6.  배열또한 클래스로 표현 된다.
+7. get, set, size
+8. 배열 생성 
+    - arrayOf --> 라이브러리 생성 
