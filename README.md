@@ -52,3 +52,10 @@
 7. get, set, size
 8. 배열 생성 
     - arrayOf --> 라이브러리 생성 
+
+## 2019 06 27
+### Control flow
+1. if else
+    - java 유사
+    -<code> val max = if(a>b) a else b </code> 식으로 작용할 수 있다.
+    - 
