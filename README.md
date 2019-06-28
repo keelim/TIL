@@ -59,3 +59,30 @@
     - java 유사
     -<code> val max = if(a>b) a else b </code> 식으로 작용할 수 있다.
     - 
+
+## 2019 06 29
+1. 코트린에는 삼항 연산자가 없다. 
+    - 대신 if를 사용을 한다.
+    
+2. when --> switch 와 유사하다고 생각
+    - 순차적으로 인자를 비교
+    - branch 가 실행
+    - 식으로의 사용이 가능 (else가 필수이다.)
+    - boolean 은 else 는 없어도 가능
+    - , 로 표현이 가능
+    - 조건문 함수나 식이 가능
+    - in을 통하여 범위안에 있는지를 확인이 가능
+    - range
+    - type 검사 가능 --> 스마트 캐스트 또한 적용 가능
+    - when 으로 인자 입력 없을 시 사용 가능
+    
+3. for loop
+    <code> for(item in collection)
+        print(item)</code>
+    - body block 가능
+    - iterator 를 반환이 가능 경우 for loop 작동 가능
+    - 상속의 구현을 받지 않음
+    - indicies 통하여 index 접근 가능
+    - withindex()
+    - while java 와 유사
+     
