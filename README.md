@@ -16,3 +16,7 @@
   - man --> manual ex> man mkdir
   - usage 명령어
   - ls -> 현재 파일 상태 확인을 하는 명령어
+
+## 2019 07 04 I Learned 
+4. 필요한 명령을 검색으로 찾는 방법(Linux)
+  -
