@@ -3,6 +3,8 @@
   - ls, ls =al, ls -l
   - touch
   - lec 2
+  
+## 2019 07 03 I Learned
 2. Linux directory
   - cd ~~
   - cd ..
