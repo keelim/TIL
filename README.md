@@ -10,4 +10,9 @@
   - cd ..
   - rm --> 삭제
   - rm -r 디렉토리 삭제
-  - 
+
+3. 명령어 사용하는 법
+  - 모든 명령어 마다 --help
+  - man --> manual ex> man mkdir
+  - usage 명령어
+  - ls -> 현재 파일 상태 확인을 하는 명령어
