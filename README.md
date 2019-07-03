@@ -85,4 +85,58 @@
     - indicies 통하여 index 접근 가능
     - withindex()
     - while java 와 유사
+
+## 2019 07 03
+> package 
+
+    - 패키지를 명세하지 않으면 default package 포함
+    - 이름이 없는 패키지는 그냥 호출을 하면 된다.
+    - 기본적으로 import가 되는 패키지가 있다. 
+    - jvm --> java.lang, kotlin.jvm
+    - js --> kotlin.js
+    - import bar.Bar as bBar --> 로컬 리네임 가능
+        - 파이썬관 유사
+
+> Return and Jumps
+
+    - return, break, continue 자바와 똑같다.
+    - Label로 break and Continue
+    - <code>
+        loop@ for(i in 10){
+            println("--i: $i ---")
+            for(j in 1..10){
+                println("j: $j")
+                if( j+1>12)
+                    break @loop
+            }
+        }
+    </code>
+    - 함수를 입력으로 가능 --> 입력 함수
+    - 함수 중첩에서 return --> 한개의 함수가 return 
+    - lambda는 함수가 아니기 떄문에 return을 하면 포함 함수가 종료
+    - label를 사용을 하면 lambda 적용이 가능
+    - 
+    <code>
+        fun foo3(){
+            var ints = listOf(0, 1, 2, 3)
+            ints.forEach label@ ({
+                if(it == 1) return @label
+                print(it)
+            })
+            print("End")
+        }
+    </code>
+    - 암시적 레이블을 사용을 할 수 있다. 
+        - 람다에서만 레이블을 사용하기 어렵다.
+        - 
+        <code>
+        fun foo3(){
+            var ints = listOf(0, 1, 2, 3)
+            ints.forEach ({
+                if(it == 1) return @forEach
+                print(it)
+            })
+            print("End")
+        }
+    </code>
      
