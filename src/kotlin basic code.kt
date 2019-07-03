@@ -30,3 +30,6 @@ fun foo4(){
     }
     print("End")
 }
+
+// 2019 07 04
+// kotlin class
