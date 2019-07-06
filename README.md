@@ -166,9 +166,17 @@
         }
 </code>
     
-## 2019 07 04
+## 2019 07 06
 > class and inheritance
     
     - class
     - inheritance
+    
+> android framework
+
+    - android (kotlin)
+    - 
+    
+
+
      
