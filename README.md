@@ -176,7 +176,95 @@
 
     - android (kotlin)
     - 
+
+## 2019 07 09
+> class and ingeritance
+
+> class
+
+    - class Empty
+    - 클래스 헤더의 일부
+
+> 기본 생성자
+
+    - 클래스 별로 1개
+    - 클래스 헤더의 일부
+    - 클래스 이름 뒤에 작성
+
+<code> class Person constructor(firstName:String)<br>
+       class Person(firstName: String)</code>
     
+    - 기본 생성자는 코드를 가질 수 없음
+    - 바디안에서는 클래스 코드
+    - init {} 생성자 코드 작성
+<code>
+fun main(args :Array<String>){<br>
+    val obj = Customer("kotlin)<br>
+    println(obj)<br>
+}<br>
 
+class Customer(name: String){<br>
+    init{<br>
+        println("이름: $name")<br>
+    }<br>
+}<br>
 
-     
+fun main(args:Array<String>){<br>
+    val obj = Customer()<br>
+    obj.fulname = "코틀린"<br>
+    println(obj).fullname<br>
+}<br>
+<br>
+class Customer(){<br>
+    var fullname: String = ""<br>
+        get() {return field}<br>
+        set(value) {feild = value}<br>
+    <br><br>
+}<br><br>
+<br><br>
+class Customer pubic @inject constructor(name: String)
+
+</code>
+
+    - property
+    - 기본생성자의 파라미터 프로퍼티 초기화 선언에도 사용 가능
+    - 프로퍼티 선언 및 초기화는 기본 생성자에서 간결한 구문으로 사용 가능    
+
+> 보조 생성자
+
+    - 기본 생성자는 클래스 헤더에서 선언
+    - 클래스 바디에 선언
+
+<code>
+class Person(val name: String){ <br>
+    constructor(name: String, parent: Person) : this(name){<br>
+     //this 기본 생성자에 접근   <br>
+    }<br>
+<br>
+    constructor() : this("홍길동", Person()){<br>
+<br>
+    }<br>
+}
+</code>
+
+> 생성된 기본 생성자 (generated primarty constructor)
+
+    - 생성자를 따로 선언하지 않으면 생성자 형서
+    - 가시성이 public 으로 선언된
+
+> 인스턴스 생성
+    
+    - 코틀린은 new 키워드가 없다.
+<code>
+val invoice = invoice()
+</code>
+
+> 클래스 멤버
+
+    - constructor init
+    - function
+    - property
+    - nested and inner class
+    - object Declararation
+
+## 2019 07 10
