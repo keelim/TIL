@@ -268,3 +268,103 @@ val invoice = invoice()
     - object Declararation
 
 ## 2019 07 10
+
+> inheritance
+
+    - 코트린의 최상위 클래스는 Any
+    - Java - object
+<code>
+    class Example1 <br>
+    class Example2 : Any();
+</code>
+    - 클론뒤에 생성자를 넣는다.
+    - Any, equals, hashCode, toString
+<code>
+fun main(args :Array<String>){<br>
+<br>
+}
+open class AA(x: Int){<br>
+<br>
+}
+class BB(x:Int) : AA(x){<br>
+<br>
+}
+</code>
+    - 파생클래스에 기본생성자가 없으면
+    - super를 통하여 초기화
+<code>
+class MyView : View{<br>
+    constructor() :super(1)<br>
+
+    constructor(ctx:Int) : this()<br>
+
+    constructor(ctx: Int, attrs: Int) : super(ctx, attrs)<br>
+}
+</code>
+    - 코틀린은 전부 final
+    - open annotation을 사용해야 한다.
+    - final 의 반대
+    - Effective Java
+
+> 메소드 오버라이딩
+
+<code>
+open class Base{<br>
+    open fun v(){}<br>
+    fun nv() {}<br>
+}<br>
+
+class Derived() : Base(){<br>
+    override fun v(){}<br>
+}<br>
+</code>
+
+    - 명시적으로 'override' 키워드 사용
+    - open 키워드와  override 키워드 사용
+
+<code>
+open class Foo{ <br>
+    open val x:Int get{}<br>
+}<br>
+
+class Bar1 :Foo(){<br>
+    ovverride val x : Int<br>
+}<br>
+</code>
+
+    - 코틀린은 단일 상속만 가능
+    - 코틀린은 인터페이스에서도 함수를 구현 가능
+    - 자바는 아님
+<code>
+open class A{<br>
+    open fun f() {print("A")}<br>
+    fun a(){print("a")}<br>
+}<br>
+
+interface B{<br>
+    fun f() {print("B")}<br>
+    fun b( {print("b")})<br>
+}<br>
+
+class C :A(), B{<br>
+    override fun f(){<br>
+        super<A>.f()<br>
+        super<B>.f()<br>
+    }
+}
+</code>
+
+> 추상 클래스
+    
+    - abstract 멤버는 구현 없음
+    - abstract 클래스나 멤버는 open 필요 없음
+
+<code>
+abstract class AbsClass{ <br>
+    abstract fun f()<br>
+}<br>
+
+class MyClass : AbsClass(){<br>
+    override fun f()<br>
+}<br>
+</code>
