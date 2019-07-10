@@ -368,3 +368,147 @@ class MyClass : AbsClass(){<br>
     override fun f()<br>
 }<br>
 </code>
+
+# 2019 07 11
+> property
+
+    - class 는 프로퍼티를 가질수 있음
+    - var mutable val read only
+<code>
+class Address {<br>
+    var name: String = "Kotlin"<br>
+    val city: String = "Seoul"<br>
+}<br>
+
+fun copyAddress(address:Address): Address{<br>
+    val result = Address()<br>
+    result.name = address.name<br>
+
+    return result<br>
+}
+</code>
+
+    - filed 사용하듯이 사용하면 안된다.
+    - option(생략 가능)
+        - PropertyType  
+            - property_initializer에서 타입을 추론 가능 생략 가능
+            - property_initializer
+            - getter
+            - setter
+
+<code>
+    var <propertyName>[:<PropertyType>] <br>[=<property_initializer>] [<getter>] [<setter>]<br>
+
+fun main(args:Array<String>){<br>
+    var obj = Address()<br>
+    println(obj.name)<br>
+}<br>
+
+class Address{<br>
+    var name:String = "Kotlin"<br>
+        get(){<br>
+            return field+"!!!"<br>
+            }<br>
+        set(value) {field = value}<br>
+}<br>
+
+class Address{<br>
+    var name = "Kotlin"<br>
+}<br>
+
+class Address2{<br>
+    var name:String = "Kotlin"<br>
+        get(){<br>
+            return field<br>
+        }<br>
+        set(value){<br>
+            field = value<br>
+        }<br>
+
+    val initialized = 1
+}
+Custom getter/setter
+val isEmpty:Boolean <br>
+    get() = this.size =0<br>
+
+var stringRepresentation: String<br>
+    get() = this.toString()<br>
+    set(value){ <br>
+        setDataFromString(value)<br>
+    }<br>
+
+var setterVsibility: String = "abc"<br>
+    private set<br>
+    @inject set<br>
+    private set(value){<br>
+        field = value<br>
+    }<br>
+var counter = 0<br>
+    set(value){<br>
+        if(value >= 0) field = value<br>
+    }<br>
+
+</code>
+
+    - 하나의 변수 필드처럼 보이게 된다.
+    - 함수적인 요소와 필드 요소를 언어레벨에서 중간 역할을 하는 것
+    - 프로퍼티 가시성을 변경이 필요한 경우
+    - field 를 통하여 automatic backing field 를 제공가능
+    - property accessor 만 사용 가능
+
+<code>
+fun main(args:Arrays<String>){<br>
+    var obj = Address()<br>
+    println(obj.name)<br>
+}<br>
+
+class Address{<br>
+    val isEmpty: Boolean = false<br>
+        get() {return field}<br>
+}<br>
+
+// backing property
+private var _table = Map<String, Int>? = null --> backing property
+public val table: Map<String, Int>
+    get(){
+        if(_table == null){
+            _table = HashMap()
+        }
+        return _table ?:throuw AssertionError("null")
+    }
+</code>
+     
+> Compile-Time Constants
+    
+    - 컴파일 타임 상수를 만들 수 있음
+<code>
+const val SUBSYSTEM_DEPRECATED String = "This SubSystem is deprecated"<br>
+</code>
+
+    - top level, object
+
+>lat initialized property
+
+    - non-null
+    - dependency injection
+    - Butter knife
+    - unit test
+
+<code>
+    public class Mytest{
+        lateinit var subject TestSubject
+
+        @SetUp fun setup(){
+            subject = testSubject()
+        }
+
+        @Test fun test(){
+
+        }
+    }
+</code>
+
+## 2019 07 12
+> Data class Nested class
+
+    - 
