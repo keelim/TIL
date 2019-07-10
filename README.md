@@ -510,5 +510,4 @@ const val SUBSYSTEM_DEPRECATED String = "This SubSystem is deprecated"<br>
 
 ## 2019 07 12
 > Data class Nested class
-
     - 
