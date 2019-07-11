@@ -510,4 +510,71 @@ const val SUBSYSTEM_DEPRECATED String = "This SubSystem is deprecated"<br>
 
 ## 2019 07 12
 > Data class Nested class
-    - 
+
+    - Data class 
+    - 아무런 작동을 하지 않고 데이터만 보관을 할 때
+<code>
+fun main(args:Array<String>){
+    val obj = User()
+    println(obj.toString())
+}   
+data clss User(var name: String = "Kotlin", var age:Int = 123)
+
+
+</code>
+
+    - equals, hashCode, copy, toString
+    - compiler 가 자동으로 생성
+    - 기본 생성자에서 정의한 프로퍼티들만
+    - 1개 이상의 파라미터
+    - 기본 생성자의 파라미터가 var, val
+    - abstract, open , sealed, inner
+    - Data class interface , Sealed class
+    - jvm 파라미터 없는 생성자가 필요한 경우
+    - 모든 프로퍼티에 기본 값을 설정해 주면 됨
+    - 코틀린이 간결한 이유
+
+> 복사
+
+    - 기존 값을 유지하고 일부만 고치는것
+    - copy를 통하여 쉽게 사용 가능
+    - 값만 고쳐서 새로운 객체를 만드는 것
+<code>
+fun copy(name:String = this.name, age:Int = this.age)
+
+val jack = User(name= "Jack", age =1)
+val orderjack = jack.copy(age =2)
+</code>
+
+> Destructing Declarations
+
+    - data class Destructureing Declarations
+    - compiler componentN 함수를 생성
+
+<code>
+    val Jane = User("jane", 35)
+    val(name, age) = jane// --> 이러한 표현이 가능
+    println("$name, $age years of age")
+</code>
+
+    - 값을 2개, 2개 설정을 할 수 있다. 
+    - componentN 함수를 만든다.
+
+>Standara data class
+
+    - Pair, Triple
+<code>
+    val jane = User("Jane", 35)
+    val pair = Pair("Jane", 35)
+</code>
+
+    - 임시적으로 사용 할 수 있는 클래스
+
+> Nested Class 
+
+    - inner keyword를 사용하여도 좋다.
+
+## 2019 07 11
+> Object Expression and Declaration
+
+    
