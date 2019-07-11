@@ -54,4 +54,13 @@
   - 자동화된 작업을 처리하는 것
 
 ## 2019 07 11 I Learned
-1. 
+1. sudo (super user do)
+  - unix --> 다중 사용자 시스템 (multiple user system)
+  - 권한 --> permission
+  - 사용자들마다 정함 // 시스템상에서 관리를 하는 suer 가 필요
+  - super user, root user
+  
+## 2019 07 12 I Learned
+1. internet, network, and server
+  
+  
