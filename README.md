@@ -61,6 +61,65 @@
   - super user, root user
   
 ## 2019 07 12 I Learned
-1. internet, network, and server
+> internet, network, and server
+
+  - 통신사는 ip를 준다.
+  - 배당 받은 서버 소프트웨어를 깔고 ip를 깔면 접속을 할 수 있다. 
+
+> 만약 여러 대일 경우
+
+  - 장비 마다 별도의 연결을 통신사마다 ip를 해당하는 것이 기초적인 것
+  - 문제는 비용 상승함
+  - 중간의 공유기와 같은 장치를 설치 "Router"
+  - Router 에서 장치들에게 전달
+  - 덕분에 사용료를 절감
+  - 문제는 ip는 router 장치에 ip가 되는 것이다. --> 각각의 컴퓨터는 통신을 위해 ip가 있으면
+  - 여기서 나오는 컨셉은 사설 ip / 전화 내선 번호와 같은 형식이라고 생각을 하면 됨
+  - 각각의 장비마다 ip를 배정을 함
+  - public address / private address
+
+> curl/ ip addr
+
+  - curl --> public ip를 볼 수 가 있다, --> router에서 주소를 알려줌
+  - ip addr --> 컴퓨터에 실질적인 ip를 확인을 하는 것을  --> private ip
+  - curl == ip addr 직접적으로 네트워크에 연결
+    - 그대로 컴퓨터를 서버로 사용
+  - else
+    - 추가적인 작업을 진행을 해야 한다.
+    - 라우터 안의 묶여 있는 컴퓨터 안에서는 통신이 가능
+  - 같은 라우터 같은 공유기 안에서는 서버적인 것을 확인을 할 수 있다.
+  - 라우터를 쓰는 컴퓨터라도 라우터 기능을 활용을 하여 특정 사용자가 public ip를 접속을 할 수 있게 함
+  
+> web server  
+  
+  - 클라이언트와 서버는 request, respose 관계
+  - client
+  - brouwser --> request
+  - other  
+  - server
+  - web server
+  - 항상 turn on
+  - storage 에서 파일을 읽어서 respose
+  - apache, ngnix, IIS
+  - address
+    - domain
+    - ip
+    
+> apache2
+  - start, stop, restart
+  - 분산 처리를 하기위해 여러개의 프로세스를 자동으로 생성
+  - 직접적인 접근을 하는 많은 문제를 갖고 있다. 
+  - 간단한 방법은 shell 에서 다이렉트로 접속
+ 
+  
+    
+  
+  
+  
+  
+
+
+  
+  
   
   
