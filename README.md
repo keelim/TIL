@@ -574,7 +574,56 @@ val orderjack = jack.copy(age =2)
 
     - inner keyword를 사용하여도 좋다.
 
-## 2019 07 11
+## 2019 07 13
 > Object Expression and Declaration
 
+    - object 어떤 클래스에서 약간의 변경 없이 객체를 생성 하는 것
+    - 명시적 선언이 아니라 바로 사용 함
+    - Object expression --> 익명 객체
+    - Object Declarations --> single tone
+    - Companion Object --> single tone + class method (static)
+    - 코틀린은 static method 가 없음
+    - unpackage level function     
+
+<code>
+btn.setOnclickListener(new OnclickListener(){
+
+})    
+</code>
+
+    - 슈퍼타입의 생성자가 있는 경우 반드시 값을 전달을 해주어야 함
+    - 슈터타입이 여러개인 경우 콜론 뒤에 콤마로 구분해서 명시
+    - public으로 객체를 접근을 하는 경우 안될 수 가 있다.
+    - enclosing scope 변수를 접근 할 수 있음
+    - final variables 제약 조건이 없음
     
+> Object declarations
+
+    - 그냥 객체가 선언이 되는 것이다. 
+    - single tone pattern
+    - 하나의 메소드만 가져야 하는 경우
+    - object 뒤에 반드시 이름이 있어야 한다.
+    - object declaration != object expression
+    - 슈퍼타입을 가질 수 있음
+    - static과 비슷하게 사용
+    - 우측에서이 사용이 제한이 된다.
+
+> Companion Object
+    
+    - 내부 클래스에서 companion 을 사용
+    - companion 내부 클래스를 바로 사용 가능
+    - 다른 언어에서의 static으로 접근이 가능하다.
+    - top level로 접근이 될 수 있음을 아라야 한다.
+    - 실제 객체의 멤버
+  
+    
+> Singleton Pattern 
+    
+    - 어플리켕션 시작이 될때 어떤 클래스가 한 번 할당이 되고 지속적으로 사용
+    - 실제 생성 객체는 하나
+    - 하나의 인스턴스를 생성해서 사용을 하는 디자인 패턴
+    - 새롭게 new를 쓰는 것을 막는다.
+    - DataBase를 사용을 할 때 많이 사용된다
+    - 안드로이드에 경우 싱클톤을 만드는 것이 편리하다.
+    - 인스턴스가 하나인것을 보증해야 한다.
+    - 객체 로딩시간이 현저히 준다.

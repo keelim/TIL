@@ -1,16 +1,67 @@
 // 2019 07 13
-window.addMouseListener(object: MouserAdapter(){
-    override fun mous~~
-})
+fun main() {
+    val t = Thread(object : Runnable {
+        override fun run() {
+            println("hello kotlin")
+        }
 
-open class A(x:Int){
-    public open val y:Int = x
+    })
+
+    val data = object {
+        var x = 1
+        var y = 1
+    }
+
+    println("${data.x}, ${data.y}")
+
+    val data1 = object {}
 }
 
-interface B{
+class MyClass {
+    public fun publicFun() = object {
+        var x = 111
 
+    }
+
+    private fun publicFun1() = object {
+        var x = 111
+
+    }
+
+    fun print() {
+        println(publicFun())
+        println(publicFun1())
+    }
 }
 
-val ab: A = object :A(1). B{
-    override val y = 15
+//1
+object CountManager {
+    var count = 0
+}
+
+fun main1() {
+    CountManager.count++
+    CountManager.count++
+    CountManager.count++
+    CountManager.count++
+    CountManager.count++
+}
+
+
+object MyClass_1{
+    init {
+        println("create MyClass_1")
+    }
+}
+
+object MyClass_2{
+    init {
+        println("create MyClass_2")
+    }
+}
+
+object MyClass_3{
+    init {
+        println("create MyClass_3")
+    }
 }
