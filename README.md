@@ -110,16 +110,24 @@
   - 분산 처리를 하기위해 여러개의 프로세스를 자동으로 생성
   - 직접적인 접근을 하는 많은 문제를 갖고 있다. 
   - 간단한 방법은 shell 에서 다이렉트로 접속
- 
   
-    
+## 2019 07 13
+> web server 
   
-  
-  
-  
-
-
-  
-  
-  
-  
+  - apache2 
+  - elinks --> server computer에 web server
+  - request, respose
+  - 자신의 webserver 주소를 알기 위해서는 
+    - ip addr
+    - localhost
+  - server - client
+    - 두개가 서로 상호작용을 함
+    - 한 컴퓨터의 server - client
+    - 스스로 request, respose
+    - 127.0.0.1
+    - web browser -> web server (HDD, SDD)
+      - 127.0.0.1/index.html/ request
+      - 특정 디렉토리에서 index.html read
+      - index.html respose
+      - html 해석
+     
