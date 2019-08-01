@@ -77,7 +77,7 @@
     -  if else
     - java 유사
    
-<code> val max = if(a>b) a else b </code> 식 사용
+``` val max = if(a>b) a else b ``` 식 사용
     
 
 ## 2019 06 29
@@ -100,8 +100,10 @@
     
 > for loop
 
-<code> for(item in collection)
-        print(item)</code>
+``` 
+for(item in collection)
+        print(item)     
+```
         
     - body block 가능
     - iterator 를 반환이 가능 경우 for loop 작동 가능
@@ -125,7 +127,7 @@
 
     - return, break, continue 자바와 똑같다.
     - Label로 break and Continue
-<code>
+```
         loop@ for(i in 10){
             println("--i: $i ---")
             for(j in 1..10){
@@ -134,14 +136,14 @@
                     break @loop
             }
         }
-</code>
+```
 
     - 함수를 입력으로 가능 --> 입력 함수
     - 함수 중첩에서 return --> 한개의 함수가 return 
     - lambda는 함수가 아니기 떄문에 return을 하면 포함 함수가 종료
     - label를 사용을 하면 lambda 적용이 가능
-    - 
-<code>
+
+```
         fun foo3(){
             var ints = listOf(0, 1, 2, 3)
             ints.forEach label@ ({
@@ -150,12 +152,11 @@
             })
             print("End")
         }
-</code>
+```
 
     - 암시적 레이블을 사용을 할 수 있다. 
         - 람다에서만 레이블을 사용하기 어렵다.
-        - 
-<code>
+```
         fun foo3(){
             var ints = listOf(0, 1, 2, 3)
             ints.forEach ({
@@ -164,7 +165,7 @@
             })
             print("End")
         }
-</code>
+```
     
 ## 2019 07 06
 > class and inheritance
@@ -191,40 +192,42 @@
     - 클래스 헤더의 일부
     - 클래스 이름 뒤에 작성
 
-<code> class Person constructor(firstName:String)<br>
-       class Person(firstName: String)</code>
+``` class Person constructor(firstName:String)
+       class Person(firstName: String)
+```
     
     - 기본 생성자는 코드를 가질 수 없음
     - 바디안에서는 클래스 코드
     - init {} 생성자 코드 작성
-<code>
-fun main(args :Array<String>){<br>
-    val obj = Customer("kotlin)<br>
-    println(obj)<br>
-}<br>
+```
+fun main(args :Array<String>){
+    val obj = Customer("kotlin)
+    println(obj)
+}
 
-class Customer(name: String){<br>
-    init{<br>
-        println("이름: $name")<br>
-    }<br>
-}<br>
 
-fun main(args:Array<String>){<br>
-    val obj = Customer()<br>
-    obj.fulname = "코틀린"<br>
-    println(obj).fullname<br>
-}<br>
-<br>
-class Customer(){<br>
-    var fullname: String = ""<br>
-        get() {return field}<br>
-        set(value) {feild = value}<br>
-    <br><br>
-}<br><br>
-<br><br>
+class Customer(name: String){
+    init{
+        println("이름: $name")
+    }
+}
+
+fun main(args:Array<String>){
+    val obj = Customer()
+    obj.fulname = "코틀린"
+    println(obj).fullname
+}
+
+class Customer(){
+    var fullname: String = ""
+        get() {return field}
+        set(value) {feild = value}
+ 
+}
+
 class Customer pubic @inject constructor(name: String)
 
-</code>
+```
 
     - property
     - 기본생성자의 파라미터 프로퍼티 초기화 선언에도 사용 가능
@@ -235,17 +238,17 @@ class Customer pubic @inject constructor(name: String)
     - 기본 생성자는 클래스 헤더에서 선언
     - 클래스 바디에 선언
 
-<code>
-class Person(val name: String){ <br>
-    constructor(name: String, parent: Person) : this(name){<br>
-     //this 기본 생성자에 접근   <br>
-    }<br>
-<br>
-    constructor() : this("홍길동", Person()){<br>
-<br>
-    }<br>
+```java
+class Person(val name: String){ 
+    constructor(name: String, parent: Person) : this(name){
+     //this 기본 생성자에 접근   
+    }
+
+    constructor() : this("홍길동", Person()){
+
+    }
 }
-</code>
+```
 
 > 생성된 기본 생성자 (generated primarty constructor)
 
@@ -255,9 +258,9 @@ class Person(val name: String){ <br>
 > 인스턴스 생성
     
     - 코틀린은 new 키워드가 없다.
-<code>
+```kotlin
 val invoice = invoice()
-</code>
+```
 
 > 클래스 멤버
 
@@ -273,34 +276,38 @@ val invoice = invoice()
 
     - 코트린의 최상위 클래스는 Any
     - Java - object
-<code>
-    class Example1 <br>
-    class Example2 : Any();
-</code>
+
+
+
     - 클론뒤에 생성자를 넣는다.
     - Any, equals, hashCode, toString
-<code>
-fun main(args :Array<String>){<br>
-<br>
+
+```kotlin
+class Example1 
+class Example2 : Any();
+
+fun main(args :Array<String>){
+
 }
-open class AA(x: Int){<br>
-<br>
+open class AA(x: Int){
+
 }
-class BB(x:Int) : AA(x){<br>
-<br>
+class BB(x:Int) : AA(x){
+
 }
-</code>
+```
     - 파생클래스에 기본생성자가 없으면
     - super를 통하여 초기화
-<code>
-class MyView : View{<br>
-    constructor() :super(1)<br>
 
-    constructor(ctx:Int) : this()<br>
+```kotlin
+class MyView : View{
+    constructor() :super(1)
 
-    constructor(ctx: Int, attrs: Int) : super(ctx, attrs)<br>
+    constructor(ctx:Int) : this()
+
+    constructor(ctx: Int, attrs: Int) : super(ctx, attrs)
 }
-</code>
+```
     - 코틀린은 전부 final
     - open annotation을 사용해야 한다.
     - final 의 반대
@@ -308,85 +315,85 @@ class MyView : View{<br>
 
 > 메소드 오버라이딩
 
-<code>
-open class Base{<br>
-    open fun v(){}<br>
-    fun nv() {}<br>
-}<br>
+```kotlin
+open class Base{
+    open fun v(){}
+    fun nv() {}
+}
 
-class Derived() : Base(){<br>
-    override fun v(){}<br>
-}<br>
-</code>
+class Derived() : Base(){
+    override fun v(){}
+}
+```
 
     - 명시적으로 'override' 키워드 사용
     - open 키워드와  override 키워드 사용
 
-<code>
-open class Foo{ <br>
-    open val x:Int get{}<br>
-}<br>
+```kotlin
+open class Foo{ 
+    open val x:Int get{}
+}
 
-class Bar1 :Foo(){<br>
-    ovverride val x : Int<br>
-}<br>
-</code>
+class Bar1 :Foo(){
+    ovverride val x : Int
+}
+```
 
     - 코틀린은 단일 상속만 가능
     - 코틀린은 인터페이스에서도 함수를 구현 가능
     - 자바는 아님
-<code>
-open class A{<br>
-    open fun f() {print("A")}<br>
-    fun a(){print("a")}<br>
-}<br>
+```kotlin
+open class A{
+    open fun f() {print("A")}
+    fun a(){print("a")}
+}
 
-interface B{<br>
-    fun f() {print("B")}<br>
-    fun b( {print("b")})<br>
-}<br>
+interface B{
+    fun f() {print("B")}
+    fun b( {print("b")})
+}
 
-class C :A(), B{<br>
-    override fun f(){<br>
-        super<A>.f()<br>
-        super<B>.f()<br>
+class C :A(), B{
+    override fun f(){
+        super<A>.f()
+        super<B>.f()
     }
 }
-</code>
+```
 
 > 추상 클래스
     
     - abstract 멤버는 구현 없음
     - abstract 클래스나 멤버는 open 필요 없음
 
-<code>
-abstract class AbsClass{ <br>
-    abstract fun f()<br>
-}<br>
+```kotlin
+abstract class AbsClass{ 
+    abstract fun f()
+}
 
-class MyClass : AbsClass(){<br>
-    override fun f()<br>
-}<br>
-</code>
+class MyClass : AbsClass(){
+    override fun f()
+}
+```
 
 # 2019 07 11
 > property
 
     - class 는 프로퍼티를 가질수 있음
     - var mutable val read only
-<code>
-class Address {<br>
-    var name: String = "Kotlin"<br>
-    val city: String = "Seoul"<br>
-}<br>
-
-fun copyAddress(address:Address): Address{<br>
-    val result = Address()<br>
-    result.name = address.name<br>
-
-    return result<br>
+```kotlin
+class Address {
+    var name: String = "Kotlin"
+    val city: String = "Seoul"
 }
-</code>
+
+fun copyAddress(address:Address): Address{
+    val result = Address()
+    result.name = address.name
+
+    return result
+}
+```
 
     - filed 사용하듯이 사용하면 안된다.
     - option(생략 가능)
@@ -396,59 +403,59 @@ fun copyAddress(address:Address): Address{<br>
             - getter
             - setter
 
-<code>
-    var <propertyName>[:<PropertyType>] <br>[=<property_initializer>] [<getter>] [<setter>]<br>
+```kotlin
+    var <propertyName>[:<PropertyType>] [=<property_initializer>] [<getter>] [<setter>]
 
-fun main(args:Array<String>){<br>
-    var obj = Address()<br>
-    println(obj.name)<br>
-}<br>
+fun main(args:Array<String>){
+    var obj = Address()
+    println(obj.name)
+}
 
-class Address{<br>
-    var name:String = "Kotlin"<br>
-        get(){<br>
-            return field+"!!!"<br>
-            }<br>
-        set(value) {field = value}<br>
-}<br>
+class Address{
+    var name:String = "Kotlin"
+        get(){
+            return field+"!!!"
+            }
+        set(value) {field = value}
+}
 
-class Address{<br>
-    var name = "Kotlin"<br>
-}<br>
+class Address{
+    var name = "Kotlin"
+}
 
-class Address2{<br>
-    var name:String = "Kotlin"<br>
-        get(){<br>
-            return field<br>
-        }<br>
-        set(value){<br>
-            field = value<br>
-        }<br>
+class Address2{
+    var name:String = "Kotlin"
+        get(){
+            return field
+        }
+        set(value){
+            field = value
+        }
 
     val initialized = 1
 }
 Custom getter/setter
-val isEmpty:Boolean <br>
-    get() = this.size =0<br>
+val isEmpty:Boolean 
+    get() = this.size =0
 
-var stringRepresentation: String<br>
-    get() = this.toString()<br>
-    set(value){ <br>
-        setDataFromString(value)<br>
-    }<br>
+var stringRepresentation: String
+    get() = this.toString()
+    set(value){ 
+        setDataFromString(value)
+    }
 
-var setterVsibility: String = "abc"<br>
-    private set<br>
-    @inject set<br>
-    private set(value){<br>
-        field = value<br>
-    }<br>
-var counter = 0<br>
-    set(value){<br>
-        if(value >= 0) field = value<br>
-    }<br>
+var setterVsibility: String = "abc"
+    private set
+    @inject set
+    private set(value){
+        field = value
+    }
+var counter = 0
+    set(value){
+        if(value >= 0) field = value
+    }
 
-</code>
+```
 
     - 하나의 변수 필드처럼 보이게 된다.
     - 함수적인 요소와 필드 요소를 언어레벨에서 중간 역할을 하는 것
@@ -456,16 +463,16 @@ var counter = 0<br>
     - field 를 통하여 automatic backing field 를 제공가능
     - property accessor 만 사용 가능
 
-<code>
-fun main(args:Arrays<String>){<br>
-    var obj = Address()<br>
-    println(obj.name)<br>
-}<br>
+```kotlin
+fun main(args:Arrays<String>){
+    var obj = Address()
+    println(obj.name)
+}
 
-class Address{<br>
-    val isEmpty: Boolean = false<br>
-        get() {return field}<br>
-}<br>
+class Address{
+    val isEmpty: Boolean = false
+        get() {return field}
+}
 
 // backing property
 private var _table = Map<String, Int>? = null --> backing property
@@ -476,14 +483,14 @@ public val table: Map<String, Int>
         }
         return _table ?:throuw AssertionError("null")
     }
-</code>
+```
      
 > Compile-Time Constants
     
     - 컴파일 타임 상수를 만들 수 있음
-<code>
-const val SUBSYSTEM_DEPRECATED String = "This SubSystem is deprecated"<br>
-</code>
+```kotlin
+const val SUBSYSTEM_DEPRECATED String = "This SubSystem is deprecated"
+```
 
     - top level, object
 
@@ -494,7 +501,7 @@ const val SUBSYSTEM_DEPRECATED String = "This SubSystem is deprecated"<br>
     - Butter knife
     - unit test
 
-<code>
+```kotlin
     public class Mytest{
         lateinit var subject TestSubject
 
@@ -506,22 +513,20 @@ const val SUBSYSTEM_DEPRECATED String = "This SubSystem is deprecated"<br>
 
         }
     }
-</code>
+```
 
 ## 2019 07 12
 > Data class Nested class
 
     - Data class 
     - 아무런 작동을 하지 않고 데이터만 보관을 할 때
-<code>
+```kotlin
 fun main(args:Array<String>){
     val obj = User()
     println(obj.toString())
 }   
 data clss User(var name: String = "Kotlin", var age:Int = 123)
-
-
-</code>
+```
 
     - equals, hashCode, copy, toString
     - compiler 가 자동으로 생성
@@ -539,23 +544,23 @@ data clss User(var name: String = "Kotlin", var age:Int = 123)
     - 기존 값을 유지하고 일부만 고치는것
     - copy를 통하여 쉽게 사용 가능
     - 값만 고쳐서 새로운 객체를 만드는 것
-<code>
+```kotlin
 fun copy(name:String = this.name, age:Int = this.age)
 
 val jack = User(name= "Jack", age =1)
 val orderjack = jack.copy(age =2)
-</code>
+```
 
 > Destructing Declarations
 
     - data class Destructureing Declarations
     - compiler componentN 함수를 생성
 
-<code>
+```kotlin
     val Jane = User("jane", 35)
     val(name, age) = jane// --> 이러한 표현이 가능
     println("$name, $age years of age")
-</code>
+```
 
     - 값을 2개, 2개 설정을 할 수 있다. 
     - componentN 함수를 만든다.
@@ -563,10 +568,10 @@ val orderjack = jack.copy(age =2)
 >Standara data class
 
     - Pair, Triple
-<code>
+```kotlin
     val jane = User("Jane", 35)
     val pair = Pair("Jane", 35)
-</code>
+```
 
     - 임시적으로 사용 할 수 있는 클래스
 
@@ -585,11 +590,11 @@ val orderjack = jack.copy(age =2)
     - 코틀린은 static method 가 없음
     - unpackage level function     
 
-<code>
+```kotlin
 btn.setOnclickListener(new OnclickListener(){
 
 })    
-</code>
+```
 
     - 슈퍼타입의 생성자가 있는 경우 반드시 값을 전달을 해주어야 함
     - 슈터타입이 여러개인 경우 콜론 뒤에 콤마로 구분해서 명시
@@ -627,3 +632,8 @@ btn.setOnclickListener(new OnclickListener(){
     - 안드로이드에 경우 싱클톤을 만드는 것이 편리하다.
     - 인스턴스가 하나인것을 보증해야 한다.
     - 객체 로딩시간이 현저히 준다.
+    
+    
+## 2019 07 13
+> annotation
+    - anotation을 처리를 하는 것이 자바에서 코틀린을 변경을 한다.
