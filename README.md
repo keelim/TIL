@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## 2019 07 02 I Learned
 1. Linux start (Window ubuntu)
   - ls, ls =al, ls -l
@@ -131,3 +132,6 @@
       - index.html respose
       - html 해석
      
+=======
+# practice_kotlin
+>>>>>>> practice_kotlin/master
