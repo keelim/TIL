@@ -1,4 +1,4 @@
-## React & Spring Boot 연동해보기!
+# React & Spring Boot 연동해보기!
 
 <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FANf2v%2Fbtqw4m6O105%2F5YoRpX1xO9NGkyjwbOKFV1%2Fimg.png">
 
@@ -6,20 +6,14 @@
 
 프로젝트 진행에 앞서 연습해보기!
 
-
-
 > **Front-end** : React
 >
 > **Back-end** : Spring Boot
 
-
-
-**스프링 부트를 통해 서버 API 역할을 구축**하고, **UI 로직을 React에서 담당** 
+**스프링 부트를 통해 서버 API 역할을 구축**하고, **UI 로직을 React에서 담당**
 ( React는 컴포넌트화가 잘되어있어서 재사용성이 좋고, 수많은 오픈소스 라이브러리 활용 장점 존재)
 
-
-
-##### 개발 환경도구 (설치할 것)
+## 개발 환경도구 (설치할 것)
 
 > - VSCode : 확장 프로그램으로 Java Extension Pack, Spring Boot Extension Pack 설치
 >   (메뉴-기본설정-설정에서 JDK 검색 후 'setting.json에서 편집'을 들어가 `java.home`으로 jdk 경로 넣어주기)
@@ -32,15 +26,12 @@
 >
 > - JDK(8 이상)
 
-
-
-### Spring Boot 웹 프로젝트 생성
+## Spring Boot 웹 프로젝트 생성
 
 ---
 
-1. VSCode에서 `ctrl-shift-p` 입력 후, spring 검색해서 
+1. VSCode에서 `ctrl-shift-p` 입력 후, spring 검색해서
    `Spring Initalizr: Generate Maven Project Spring` 선택
-   
 
 2. 프로젝트를 선택하면 나오는 질문은 아래와 같이 입력
 
@@ -50,11 +41,7 @@
    > - **Spring boot version** : 2.1.6
    > - **Dependency** : DevTools, Spring Web Starter Web 검색 후 Selected
 
-   
-
 3. 프로젝트를 저장할 폴더를 지정하면 Spring Boot 프로젝트가 설치된다!
-
-
 
 일단 React를 붙이기 전에, Spring Boot 자체로 잘 구동되는지 진행해보자
 
@@ -73,23 +60,19 @@ JSP와 JSTL을 사용하기 위해 라이브러리를 추가한다. pom.xml의 d
 </dependency>
 ```
 
-
-
 이제 서버를 구동해보자
 
 VSCode에서 터미널 창을 열고 `.\mvnw spring-boot:run`을 입력하면 서버가 실행되는 모습을 확인할 수 있다.
 
-
-
-***만약 아래와 같은 에러가 발생하면?***
+`만약 아래와 같은 에러가 발생하면?`
 
 ```
 ***************************
 APPLICATION FAILED TO START
 ***************************
- 
+
 Description:
- 
+
 The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
 ```
 
@@ -113,10 +96,6 @@ taskkill /f /im [pid번호]
 
 <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FbHP9BD%2Fbtqw7chRt8b%2FKltDWaAziWWi1F8JgpZLgK%2Fimg.png">
 
-
-
-
-
 ### React 환경 추가하기
 
 ---
@@ -135,8 +114,6 @@ npm i @babel/core @babel/preset-env @babel/preset-react babel-loader css-loader 
 
 > create-react-app으로 한번에 설치도 가능함
 
-
-
 ##### webpack 설정하기
 
 > webpack을 통해 react 개발 시 자바스크립트 기능과 jsp에 포함할 .js 파일을 만들 수 있다.
@@ -144,36 +121,39 @@ npm i @babel/core @babel/preset-env @babel/preset-react babel-loader css-loader 
 > 프로젝트 루트 경로에 webpack.config.js 파일을 만들고 아래 코드를 붙여넣기
 
 ```javascript
-var path = require('path');
- 
+var path = require("path");
+
 module.exports = {
-    context: path.resolve(__dirname, 'src/main/jsx'),
-    entry: {
-        main: './MainPage.jsx',
-        page1: './Page1Page.jsx'
-    },
-    devtool: 'sourcemaps',
-    cache: true,
-    output: {
-        path: __dirname,
-        filename: './src/main/webapp/js/react/[name].bundle.js'
-    },
-    mode: 'none',
-    module: {
-        rules: [ {
-            test: /\.jsx?$/,
-            exclude: /(node_modules)/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: [ '@babel/preset-env', '@babel/preset-react' ]
-                }
-            }
-        }, {
-            test: /\.css$/,
-            use: [ 'style-loader', 'css-loader' ]
-        } ]
-    }
+  context: path.resolve(__dirname, "src/main/jsx"),
+  entry: {
+    main: "./MainPage.jsx",
+    page1: "./Page1Page.jsx",
+  },
+  devtool: "sourcemaps",
+  cache: true,
+  output: {
+    path: __dirname,
+    filename: "./src/main/webapp/js/react/[name].bundle.js",
+  },
+  mode: "none",
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+          },
+        },
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
+  },
 };
 ```
 
@@ -184,10 +164,6 @@ module.exports = {
 > MainPage와 Page1Page.jsx 빌드
 >
 > 빌드 결과 js 파일들을 src/main/webapp/js/react 아래 [페이지 이름].bundle.js로 놓음
-
-
-
-
 
 ### 서버 코드 개발하기
 
@@ -202,10 +178,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
- 
+
 @Controller
 public class MyController {
- 
+
     @GetMapping("/{name}.html")
     public String page(@PathVariable String name, Model model) {
         model.addAttribute("pageName", name);
@@ -215,13 +191,9 @@ public class MyController {
 }
 ```
 
-
-
 추가로 src/main에다가 webapp 폴더를 만들자
 
 webapp 폴더 안에 jsp 폴더와 css 폴더를 생성한다.
-
-
 
 그리고 jsp와 css 파일을 하나씩 넣어보자
 
@@ -234,7 +206,7 @@ webapp 폴더 안에 jsp 폴더와 css 폴더를 생성한다.
 <head>
     <title>${pageName}</title>
 </head>
- 
+
 <body>
     <div id="root"></div>
     <script src="/js/react/${pageName}.bundle.js"></script>
@@ -242,22 +214,18 @@ webapp 폴더 안에 jsp 폴더와 css 폴더를 생성한다.
 </html>
 ```
 
-
-
 ##### src/main/webapp/css/custom.css
 
 ```css
-.main { 
-    font-size: 24px; border-bottom: solid 1px black; 
+.main {
+  font-size: 24px;
+  border-bottom: solid 1px black;
 }
-.page1 { 
-    font-size: 14px; background-color: yellow; 
+.page1 {
+  font-size: 14px;
+  background-color: yellow;
 }
 ```
-
-
-
-
 
 ### 클라이언트 코드 개발하기
 
@@ -270,50 +238,40 @@ src/main에 jsx 폴더를 만들고 MainPage.jsx와 Page1Page.jsx 2가지 jsx �
 ##### src/main/jsx/MainPage.jsx
 
 ```jsx
-import '../webapp/css/custom.css';
- 
-import React from 'react';
-import ReactDOM from 'react-dom';
- 
+import "../webapp/css/custom.css";
+
+import React from "react";
+import ReactDOM from "react-dom";
+
 class MainPage extends React.Component {
- 
-    render() {
-        return <div className="main">no4gift 메인 페이지</div>;
-    }
- 
+  render() {
+    return <div className="main">no4gift 메인 페이지</div>;
+  }
 }
- 
-ReactDOM.render(<MainPage/>, document.getElementById('root'));
+
+ReactDOM.render(<MainPage />, document.getElementById("root"));
 ```
-
-
 
 ##### src/main/jsx/Page1Page.jsx
 
 ```jsx
-import '../webapp/css/custom.css';
- 
-import React from 'react';
-import ReactDOM from 'react-dom';
- 
+import "../webapp/css/custom.css";
+
+import React from "react";
+import ReactDOM from "react-dom";
+
 class Page1Page extends React.Component {
- 
-    render() {
-        return <div className="page1">no4gift의 Page1 페이지</div>;
-    }
- 
+  render() {
+    return <div className="page1">no4gift의 Page1 페이지</div>;
+  }
 }
- 
-ReactDOM.render(<Page1Page/>, document.getElementById('root'));
+
+ReactDOM.render(<Page1Page />, document.getElementById("root"));
 ```
 
-> 아까 작성한 css파일을 import한 것을 볼 수 있는데, css 적용 방식은 이밖에도 여러가지 방법이 있다. 
-
-
+> 아까 작성한 css파일을 import한 것을 볼 수 있는데, css 적용 방식은 이밖에도 여러가지 방법이 있다.
 
 이제 우리가 만든 클라이언트 페이지를 서버 구동 후 볼 수 있도록 빌드시켜야 한다!
-
-
 
 #### 클라이언트 스크립트 빌드시키기
 
@@ -333,17 +291,11 @@ node_modules\.bin\webpack --watch -d
 
 터미널 화면을 보면, `webpack.config.js`에서 우리가 설정한대로 정상적으로 빌드되는 것을 확인할 수 있다.
 
-
-
 <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FdCY33w%2Fbtqw6nqnFYA%2F6PkKNTZAFhHS92sj9GDsc0%2Fimg.png">
-
-
 
 src/main/webapp/js/react 아래에 우리가 만든 두 페이지에 대한 bundle.js 파일이 생성되었으면 제대로 된 것이다.
 
-
-
-서버 구동이나, 번들링이나 명령어 입력이 상당히 길기 때문에 귀찮다ㅠㅠ 
+서버 구동이나, 번들링이나 명령어 입력이 상당히 길기 때문에 귀찮다ㅠㅠ
 `pakage.json`의 script에 등록해두면 간편하게 빌드과 서버 실행을 진행할 수 있다.
 
 ```json
@@ -360,34 +312,22 @@ start의 jdk경로는 각자 자신의 경로를 입력해야한다.
 
 이제 우리는 빌드는 `npm run watch`로, 스프링 부트 서버 실행은 `npm run start`로 진행할 수 있다~
 
-
-
 빌드가 이루어졌기 때문에 우리가 만든 페이지를 확인해볼 수 있다.
 
 해당 경로로 들어가면 우리가 jsx파일로 작성한 모습이 제대로 출력된다.
-
-
 
 MainPage : http://localhost:8080/main.html
 
 <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FblVl1i%2Fbtqw8BHJS0i%2Fk9n8KFavNlAl72Ijl5zZB0%2Fimg.png">
 
-
-
 Page1Page : http://localhost:8080/page1.html
 
 <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FbE35Su%2Fbtqw79Y0c6b%2Fm57ohwy2QKkkEgdEWifvTk%2Fimg.png">
-
-
 
 여기까지 진행한 프로젝트 경로
 
 <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fk.kakaocdn.net%2Fdn%2FHrN7W%2Fbtqw5gec26g%2FMqCZViee9Qc2s1tl09XVs0%2Fimg.png">
 
-
-
 이와 같은 과정을 토대로 구현할 웹페이지들을 생성해 나가면 된다.
-
-
 
 이상 React와 Spring Boot 연동해서 환경 설정하기 끝!
