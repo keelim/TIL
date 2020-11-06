@@ -1,4 +1,4 @@
-## 로드 밸런싱(Load Balancing)
+# 로드 밸런싱(Load Balancing)
 
 > 둘 이상의 CPU or 저장장치와 같은 컴퓨터 자원들에게 작업을 나누는 것
 
