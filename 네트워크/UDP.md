@@ -1,8 +1,8 @@
-### 2019.08.26.(월) [BYM] UDP란?
+- [들어가기 전](#들어가기-전)
+- [1. UDP Header](#1-udp-header)
+- [DNS과 UDP 통신 프로토콜을 사용함.](#dns과-udp-통신-프로토콜을-사용함)
 
----
-
-#### 들어가기 전
+## 들어가기 전
 
 - UDP 통신이란?
 
@@ -39,7 +39,7 @@
   - DNS : port 53번
   - But, TCP를 사용할 때가 있다! 크기가 512(UDP 제한)이 넘을 때, TCP를 사용해야한다.
 
-#### 1. UDP Header
+## 1. UDP Header
 
 - <img src='https://t1.daumcdn.net/cfile/tistory/272A5A385759267B36'>
   - Source port : 시작 포트
@@ -53,7 +53,7 @@
 - 그러나 확인 응답을 못하므로, TCP보다 신뢰도가 떨어짐.
 - UDP는 비연결성, TCP는 연결성으로 정의할 수 있음.
 
-#### DNS과 UDP 통신 프로토콜을 사용함.
+## DNS과 UDP 통신 프로토콜을 사용함.
 
 DNS는 데이터를 교환하는 경우임
 
@@ -89,8 +89,3 @@ Zone transfer 을 사용해야하는 경우에는 TCP를 사용해야 함.
 (Zone Transfer : DNS 서버 간의 요청을 주고 받을 떄 사용하는 transfer)
 
 만약에 데이터가 512 bytes를 넘거나, 응답을 못받은 경우 TCP로 함.
-
-[ref]
-
-- <https://www.geeksforgeeks.org/why-does-dns-use-udp-and-not-tcp/>
-- <https://support.microsoft.com/en-us/help/556000>
