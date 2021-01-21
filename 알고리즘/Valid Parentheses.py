@@ -20,7 +20,6 @@ class Solution:
         
         return len(stack)==0
 
-class Solution:
     def isValid(self, s):
         stack = []
         dictionary = {"]":"[", "}":"{", ")":"("}
@@ -33,8 +32,3 @@ class Solution:
             else:
                 return False
         return stack == []
-        
-
-
-
-        
