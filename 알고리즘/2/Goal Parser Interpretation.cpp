@@ -1,7 +1,3 @@
-#include<bits/stdc++.h>
-
-using namespace std;
-
 class Solution {
 public:
     string interpret(string command) {
@@ -34,5 +30,11 @@ public:
 
             st.push(ele);
         }
+    }
+
+    string interpret(string command) {
+        replace(command.begin(), command.end(), "()", "o");
+        replace(command.begin(), command.end(), "(al)", "al");
+        return command
     }
 };
