@@ -1,7 +1,11 @@
-def solution(n):
-    num=set(range(2,n+1))
+from itertools import combinations
 
-    for i in range(2,int(n**0.5)+1):
-        if i in num:
-             num -= set(range(i*i,n+1,i)) 
-    return len(num)
+
+def solution(numbers: str):
+    list1 = list(combinations(numbers, len(numbers)))
+    answer = set()
+    for ele in list1:
+        answer.add(''.join(ele))
+    print(answer)
+
+    return len(answer)
