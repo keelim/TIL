@@ -1,4 +1,4 @@
-def solution(n, arr1, arr2):
+def solution(n:int, arr1:list, arr2:list)->int:
     answer = []
     for i in range(n):
         answer.append(
